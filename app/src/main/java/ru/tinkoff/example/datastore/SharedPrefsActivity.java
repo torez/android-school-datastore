@@ -65,7 +65,7 @@ public class SharedPrefsActivity extends Activity {
         int i = prefs.getInt(INT, 0);
         long l = prefs.getLong(LONG, 0L);
         String s = prefs.getString(STRING, "Default String");
-        Set<String> ss = prefs.getStringSet(STRING_SET, new LinkedHashSet<>(Arrays.asList("Default", "string", "set")));
+        Set<String> ss = prefs.getStringSet(STRING_SET, new LinkedHashSet(Arrays.asList("Default", "string", "set")));
 
         boolValue.setChecked(b);
         floatValue.setText(String.valueOf(f));
@@ -81,7 +81,7 @@ public class SharedPrefsActivity extends Activity {
         int i = Integer.valueOf(intValue.getText().toString());
         long l = Long.valueOf(longValue.getText().toString());
         String s = stringValue.getText().toString();
-        Set<String> ss = new LinkedHashSet<>(Arrays.asList(stringSetValue.getText().toString().split(",")));
+        Set<String> ss = new LinkedHashSet (Arrays.asList(stringSetValue.getText().toString().split(",")));
 
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean(BOOL, b);
