@@ -100,7 +100,7 @@ public class SqliteActivity extends ListActivity {
 
     private void refreshListView() {
         List<Entity> entities = dao.getAll();
-        ArrayAdapter<Entity> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, entities);
+        ArrayAdapter<Entity> adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, entities);
         setListAdapter(adapter);
     }
 
@@ -151,7 +151,7 @@ public class SqliteActivity extends ListActivity {
         }
 
         public List<Entity> getAll() {
-            List<Entity> all = new ArrayList<>();
+            List<Entity> all = new ArrayList();
 
             Cursor cursor = database.query("entity", new String[]{BaseColumns._ID, "value"}, null, null, null, null, null);
             for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
